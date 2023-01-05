@@ -1,9 +1,10 @@
-package org.wycliffe;
+package org.infotech;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 import org.wycliffe.dao.Ticket;
 
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import java.util.Date;
 
@@ -13,6 +14,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.core.StringContains.containsString;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @QuarkusTest
 public class MyServiceTest {
@@ -39,6 +42,7 @@ public class MyServiceTest {
                 .extract().as(Ticket[].class);
 
         assertThat(tickets.length, is(greaterThan(0)));
+
     }
 
     @Test

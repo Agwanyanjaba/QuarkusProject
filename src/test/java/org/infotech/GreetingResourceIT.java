@@ -1,4 +1,4 @@
-package org.wycliffe;
+package org.infotech;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 

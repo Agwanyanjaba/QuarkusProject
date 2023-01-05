@@ -2,10 +2,12 @@ package org.wycliffe.service;
 
 import org.jboss.logging.Logger;
 import org.hibernate.exception.ConstraintViolationException;
+import org.wycliffe.accountingservice.responses.TicketResponse;
 import org.wycliffe.dao.Ticket;
 
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -26,6 +28,9 @@ public class TicketService {
     //logger
     private static final Logger LOGGER = Logger.getLogger(TicketService.class);
 
+    @Inject
+    TicketResponse ticketResponse;
+
     @GET
     public List<Ticket> getTickets(){
         List<Ticket> listAll = Ticket.findAll().list();
@@ -40,7 +45,8 @@ public class TicketService {
     public Ticket getTicket(@PathParam(value="id") Long id){
         Ticket entity =  Ticket.findById(id);
         if(entity==null){
-            throw new WebApplicationException("Ticket with" + id + "not found", 404);
+            String message = "Ticket with "+id+"not found";
+            ticketResponse.setResponseMessage(message);
         }
 
         return entity;

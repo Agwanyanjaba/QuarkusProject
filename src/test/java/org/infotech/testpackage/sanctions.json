@@ -1,0 +1,9 @@
+{
+  "sanctionReasonId": 1,
+  "sanctionedBy": "{\"id\":3,\"name\":\"Daudi Muriu\",\"email\":\"daudi@sendyit.com\",\"phone\":\"+254705948783\"}",
+  "accountId": 1400,
+  "sanctionType": "suspension",
+  "liftAt": "2022-11-30 11:59:34",
+  "comment": "Alikosea",
+  "culprit": "partner"
+}
