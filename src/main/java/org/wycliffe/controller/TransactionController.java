@@ -1,5 +1,7 @@
 package org.wycliffe.controller;
 
+import org.wycliffe.dao.TransactionRequest;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -15,6 +17,10 @@ public class TransactionController {
     @POST
     @Path("/credit")
     public Response addTransaction(TransactionRequest request){
+
+        request = new TransactionRequest()
+
+        return Response.ok(requset).build();
 
     }
 }
